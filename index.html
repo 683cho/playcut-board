@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; min-height: 15.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!-- PlayCut Board WebApp Full Enhanced Version --&gt;</p>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;PlayCut Board - Sound Select&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #f5f5f5;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: background-color 0.3s, color 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (prefers-color-scheme: dark) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>background-color: #121212;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.sound-item {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>background: #1e1e1e;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.send-btn {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>background-color: #1a73e8;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.send-btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>background-color: #135ab6;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 28px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.language-selector {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sound-category {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sound-category h2 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sound-list {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sound-item {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 5px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: background 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sound-item.selected {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #d1e7dd;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sound-item button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #4CAF50;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.send-btn {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #007BFF;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: background 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.send-btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #0056b3;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.selected-sound {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1 id="title"&gt;PlayCut Board&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="language-selector"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;select id="language" onchange="changeLanguage()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option value="en"&gt;English&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option value="ko"&gt;한국어&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option value="ja"&gt;日本語&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="selected-sound" id="selectedSound"&gt;No sound selected&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="categories"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sound-category"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 id="gameCategory"&gt;Game&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sound-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sound-item" onclick="selectSound('Fun Game Effects')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;Fun Game Effects&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onclick="event.stopPropagation(); playPreview('game.mp3')"&gt;Play&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sound-category"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 id="cookingCategory"&gt;Cooking&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sound-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sound-item" onclick="selectSound('Cooking Sizzle')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;Cooking Sizzle&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onclick="event.stopPropagation(); playPreview('cooking.mp3')"&gt;Play&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sound-category"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 id="natureCategory"&gt;Nature&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sound-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sound-item" onclick="selectSound('Nature Sounds')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;Nature Sounds&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onclick="event.stopPropagation(); playPreview('nature.mp3')"&gt;Play&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sound-category"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 id="kidsCategory"&gt;Kids&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sound-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sound-item" onclick="selectSound('Kids Laughing')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;Kids Laughing&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onclick="event.stopPropagation(); playPreview('kids.mp3')"&gt;Play&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="send-btn" onclick="sendSound()" id="sendButton"&gt;Send to PlayCut Board&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;audio id="audioPreview" style="display:none"&gt;&lt;/audio&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let selected = null;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function selectSound(sound) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const items = document.querySelectorAll('.sound-item');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>items.forEach(item =&gt; item.classList.remove('selected'));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const eventTarget = event.currentTarget;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>eventTarget.classList.add('selected');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>selected = sound;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('selectedSound').innerText = `Selected: ${sound}`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function playPreview(file) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const audio = document.getElementById('audioPreview');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>audio.src = file;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>audio.play();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function sendSound() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (selected) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert(`Sending '${selected}' to PlayCut Board...`);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 실제 블루투스 전송 로직은 여기서 추가 가능</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert('Please select a sound first.');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function changeLanguage() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const lang = document.getElementById('language').value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const texts = {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>en: {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>title: "PlayCut Board",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>sendButton: "Send to PlayCut Board",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>gameCategory: "Game",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>cookingCategory: "Cooking",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>natureCategory: "Nature",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>kidsCategory: "Kids"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>ko: {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>title: "플레이컷 보드",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>sendButton: "보드로 보내기",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>gameCategory: "게임",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>cookingCategory: "요리",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>natureCategory: "자연",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>kidsCategory: "아이들"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>ja: {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>title: "プレイカットボード",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>sendButton: "ボードに送信",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>gameCategory: "ゲーム",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>cookingCategory: "料理",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>natureCategory: "自然",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>kidsCategory: "子供たち"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('title').innerText = texts[lang].title;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('sendButton').innerText = texts[lang].sendButton;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('gameCategory').innerText = texts[lang].gameCategory;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('cookingCategory').innerText = texts[lang].cookingCategory;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('natureCategory').innerText = texts[lang].natureCategory;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('kidsCategory').innerText = texts[lang].kidsCategory;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
