@@ -1,18 +1,22 @@
-<!-- PlayCut Board WebApp Full Enhanced Version -->
+<!-- PlayCut Board WebApp Modernized Version -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PlayCut Board - Sound Select</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Noto Sans', sans-serif;
       margin: 0;
-      padding: 20px;
-      background-color: #f5f5f5;
+      padding: 40px 20px;
+      background-color: #f0f2f5;
       color: #333;
-      transition: background-color 0.3s, color 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
     }
     @media (prefers-color-scheme: dark) {
       body {
@@ -21,7 +25,6 @@
       }
       .sound-item {
         background: #1e1e1e;
-        color: #ffffff;
       }
       .send-btn {
         background-color: #1a73e8;
@@ -31,20 +34,21 @@
       }
     }
     h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 28px;
+      font-size: 32px;
+      margin-bottom: 30px;
     }
     .language-selector {
-      text-align: center;
       margin-bottom: 20px;
     }
     .sound-category {
-      margin-bottom: 30px;
+      margin-bottom: 40px;
+      width: 100%;
+      max-width: 600px;
     }
     .sound-category h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #555;
     }
     .sound-list {
       display: flex;
@@ -53,45 +57,53 @@
     }
     .sound-item {
       background: white;
-      padding: 15px;
-      border-radius: 10px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       cursor: pointer;
-      transition: background 0.3s;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .sound-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
     .sound-item.selected {
-      background: #d1e7dd;
+      background: #e0f7fa;
     }
     .sound-item button {
-      padding: 8px 12px;
+      padding: 8px 14px;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       background-color: #4CAF50;
       color: white;
       cursor: pointer;
+      transition: background 0.3s;
+    }
+    .sound-item button:hover {
+      background-color: #45a049;
     }
     .send-btn {
-      width: 100%;
-      padding: 15px;
+      margin-top: 30px;
+      padding: 15px 30px;
       background-color: #007BFF;
       color: white;
       border: none;
-      border-radius: 10px;
-      font-size: 18px;
+      border-radius: 12px;
+      font-size: 20px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
     }
     .send-btn:hover {
       background-color: #0056b3;
+      transform: translateY(-2px);
     }
     .selected-sound {
-      text-align: center;
-      margin-bottom: 20px;
       font-size: 18px;
       font-weight: bold;
+      margin-bottom: 20px;
     }
   </style>
 </head>
@@ -175,7 +187,6 @@
     function sendSound() {
       if (selected) {
         alert(`Sending '${selected}' to PlayCut Board...`);
-        // 실제 블루투스 전송 로직은 여기서 추가 가능
       } else {
         alert('Please select a sound first.');
       }
@@ -202,11 +213,11 @@
         },
         ja: {
           title: "プレイカットボード",
-          sendButton: "ボードに送信",
+          sendButton: "ボードに送る",
           gameCategory: "ゲーム",
           cookingCategory: "料理",
           natureCategory: "自然",
-          kidsCategory: "子供たち"
+          kidsCategory: "キッズ"
         }
       };
       document.getElementById('title').innerText = texts[lang].title;
